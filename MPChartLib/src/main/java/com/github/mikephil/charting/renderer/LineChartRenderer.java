@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.animation.ChartAnimator;
@@ -794,6 +795,11 @@ public class LineChartRenderer extends LineRadarRenderer {
                 circleBitmaps[i] = circleBitmap;
                 mRenderPaint.setColor(set.getCircleColor(i));
 
+                Paint paint = new Paint();
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setStrokeWidth(circleHoleRadius);
+                paint.setColor(Color.rgb(255, 255, 255));
+
                 if (drawTransparentCircleHole) {
                     // Begin path for circle with hole
                     mCirclePathBuffer.reset();
@@ -818,8 +824,8 @@ public class LineChartRenderer extends LineRadarRenderer {
                     canvas.drawCircle(
                             circleRadius,
                             circleRadius,
-                            circleRadius,
-                            mRenderPaint);
+                            circleRadius/2,
+                            paint);
 
                     if (drawCircleHole) {
                         canvas.drawCircle(

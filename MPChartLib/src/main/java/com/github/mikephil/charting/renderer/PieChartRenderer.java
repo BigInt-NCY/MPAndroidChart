@@ -992,7 +992,7 @@ public class PieChartRenderer extends DataRenderer {
                         * Math.sin(Math.toRadians((angle + sliceAngle)
                         * phaseY)) + center.y);
 
-                mRenderPaint.setColor(dataSet.getColor(j));
+                mRenderPaint.setColor(Color.rgb(255, 255, 255));
                 mBitmapCanvas.drawCircle(x, y, circleRadius, mRenderPaint);
             }
 
